@@ -4,8 +4,8 @@ body {
 }
 
 /* Toggles */
-.visible {
-    visibility: visible;
+.bold {
+    font-weight: 600;
 }
 
 .hidden {
@@ -35,28 +35,13 @@ body {
     gap: 0.75rem;
 }
 
-#eye-dropper {
-    display: grid;
-}
-
-#eye-dropper-background {
+#eye-dropper-picker {
     width: 61px;
     height: 42px;
     background-color: #e5e5e5;
     place-self: center;
-}
-
-#eye-dropper-picker {
-    width: 51px;
-    height: 34px;
-    background-color: #f55a5a;
-    place-self: center;
     cursor: pointer;
-}
-
-#eye-dropper-background,
-#eye-dropper-picker {
-    grid-area: 1/1;
+    border: none;
 }
 
 #dropdown-section {
@@ -80,17 +65,12 @@ body {
     color: #111827;
 }
 
-.bold {
-    font-weight: 600;
-}
-
 .dropdown-name {
     text-decoration: none;
 }
 
 #dropdown-content {
     display: none;
-    /* visibility: hidden; */
     width: 19.5rem;
     height: 17.938rem;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),

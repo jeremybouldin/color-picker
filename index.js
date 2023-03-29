@@ -1,8 +1,21 @@
 const dropdownEl = document.getElementById('dropdown-section')
 const dropdownContent = document.getElementById('dropdown-content')
-let currentScheme = ''
+const colorPicker = document.getElementById('eye-dropper-picker')
+const callApiBtn = document.getElementById('get-scheme-btn')
+const colorBars = document.getElementById('color-bars')
+const colorCodes = document.getElementById('color-code-section')
+let currentScheme = 'monochrome'
 let dropdownOpen = false
+let selectedColor = 'F55A5A'
+let colorArray = ['#F55A5A', '#2B283A', '#FBF3AB', '#AAD1B6', '#A626D3']
 
+// Color picker listener
+colorPicker.addEventListener('change', updateSelectedColor)
+
+// Submit API when click 'get color scheme'
+callApiBtn.addEventListener('click', callApi)
+
+// Close drop down if click outside of it
 window.addEventListener('click', (e) => {
     const clickedOnDropdown = e.target.closest('#dropdown-content')
 
@@ -11,6 +24,7 @@ window.addEventListener('click', (e) => {
     }
 })
 
+// Functionality for adding/removing bold/checks on dropdown options
 document.addEventListener('click', (e) => {
     if (e.target.dataset.scheme) {
         removeBold()
@@ -20,23 +34,29 @@ document.addEventListener('click', (e) => {
         addCheck()
         document.getElementById('current-scheme-text').textContent =
             currentScheme[0].toUpperCase() + currentScheme.substring(1)
-        // removeBoldAndCheck()
-        // console.log(currentScheme)
+        closeDropDown()
     }
-    // addBold()
 })
 
+// Open drop down
 dropdownEl.addEventListener('click', (e) => {
     e.stopPropagation()
     dropdownOpen === false ? openDropDown() : closeDropDown()
 })
 
-function removeBoldAndCheck() {
-    const currentDropDownItem = document.getElementById(currentScheme)
-
-    const currentChild = currentDropDownItem.querySelector('.dropdown-name')
+// Color selector
+function updateSelectedColor(event) {
+    let str = event.target.value
+    selectedColor = str.substring(1)
 }
 
+// Remove old color entries from array and start with seed (selected) color
+function resetColorArray() {
+    colorArray = []
+    colorArray.push('#' + selectedColor)
+}
+
+// Dropdown bold/checks add/remove
 function removeBold() {
     if (currentScheme) {
         const match = locateDropdownTextElement()
@@ -54,7 +74,6 @@ function removeChecks() {
 function addBold() {
     const match = locateDropdownTextElement()
     match.classList.add('bold')
-    // console.log(currentScheme)
 }
 
 function addCheck() {
@@ -62,18 +81,21 @@ function addCheck() {
     match.classList.remove('hidden')
 }
 
+// Lookup html element for adding/removing bold on dropdown
 function locateDropdownTextElement() {
     if (currentScheme) {
         return document.getElementById(currentScheme + '-text')
     }
 }
 
+// Lookup html element for adding/removing checks on dropdown
 function locateDropdownCheckElement() {
     if (currentScheme) {
         return document.getElementById(currentScheme + '-check')
     }
 }
 
+// Dropdown open/close
 function closeDropDown() {
     dropdownContent.style.display = 'none'
     dropdownOpen = false
@@ -82,4 +104,30 @@ function closeDropDown() {
 function openDropDown() {
     dropdownContent.style.display = 'grid'
     dropdownOpen = true
+}
+
+// Fetch API call
+function callApi() {
+    resetColorArray()
+    fetch(
+        `https://www.thecolorapi.com/scheme?hex=${selectedColor}&mode=${currentScheme}&count=4`
+    )
+        .then((res) => res.json())
+        .then((data) => {
+            data.colors.forEach((color) => {
+                colorArray.push(color.hex.value)
+            })
+            updateColors()
+        })
+}
+
+// Update color bars and codes
+function updateColors() {
+    for (let i = 1; i < 6; i++) {
+        document.getElementById('color-' + i.toString()).style.background =
+            colorArray[i - 1]
+
+        document.getElementById('color-code-' + i.toString()).textContent =
+            colorArray[i - 1]
+    }
 }
