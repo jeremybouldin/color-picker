@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
             rel="stylesheet"
         />
 
@@ -25,19 +25,137 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div id="picker-top">
-            <div id="eye-dropper">
-                <div id="eye-dropper-background"></div>
-                <div id="eye-dropper-picker"></div>
+        <div id="container">
+            <div id="header">
+                <div id="eye-dropper">
+                    <div id="eye-dropper-background"></div>
+                    <div id="eye-dropper-picker"></div>
+                </div>
+                <div id="dropdown-section">
+                    <div id="current-scheme-text"></div>
+                    <i
+                        class="fa-solid fa-angle-down"
+                        style="color: #dbdde1"
+                    ></i>
+                </div>
+                <div id="dropdown-content">
+                    <div id="monochrome" class="dropdown-item">
+                        <a
+                            id="monochrome-text"
+                            data-scheme="monochrome"
+                            class="dropdown-name"
+                            href="#"
+                            >Monochrome</a
+                        >
+                        <i
+                            id="monochrome-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="monochrome-dark" class="dropdown-item">
+                        <a
+                            id="monochrome-dark-text"
+                            data-scheme="monochrome-dark"
+                            class="dropdown-name"
+                            href="#"
+                            >Monochrome-dark</a
+                        >
+                        <i
+                            id="monochrome-dark-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="monochrome-light" class="dropdown-item">
+                        <a
+                            id="monochrome-light-text"
+                            data-scheme="monochrome-light"
+                            class="dropdown-name"
+                            href="#"
+                            >Monochrome-light</a
+                        >
+                        <i
+                            id="monochrome-light-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="analogic" class="dropdown-item">
+                        <a
+                            id="analogic-text"
+                            data-scheme="analogic"
+                            class="dropdown-name"
+                            href="#"
+                            >Analogic</a
+                        >
+                        <i
+                            id="analogic-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="complement" class="dropdown-item">
+                        <a
+                            id="complement-text"
+                            data-scheme="complement"
+                            class="dropdown-name"
+                            href="#"
+                            >Complement</a
+                        >
+                        <i
+                            id="complement-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="analogic-complement" class="dropdown-item">
+                        <a
+                            id="analogic-complement-text"
+                            data-scheme="analogic-complement"
+                            class="dropdown-name"
+                            href="#"
+                            >Analogic-complement</a
+                        >
+                        <i
+                            id="analogic-complement-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                    <div id="triad" class="dropdown-item">
+                        <a
+                            id="triad-text"
+                            data-scheme="triad"
+                            class="dropdown-name"
+                            href="#"
+                            >Triad</a
+                        >
+                        <i
+                            id="triad-check"
+                            class="fa-solid fa-check hidden"
+                            style="color: #4f46e5"
+                        ></i>
+                    </div>
+                </div>
+                <div id="get-scheme-btn">Get color scheme</div>
             </div>
-            <div id="scheme-list">
-                <div id="scheme-selection">Monochrome</div>
-                <i class="fa-solid fa-angle-down" style="color: #dbdde1"></i>
+            <div id="color-bars">
+                <div id="color-1"></div>
+                <div id="color-2"></div>
+                <div id="color-3"></div>
+                <div id="color-4"></div>
+                <div id="color-5"></div>
             </div>
-            <div id="get-scheme">Get color scheme</div>
+            <div id="color-code-section">
+                <div id="color-code-1" class="color-code">#F55A5A</div>
+                <div id="color-code-2" class="color-code">#2B283A</div>
+                <div id="color-code-3" class="color-code">#FBF3AB</div>
+                <div id="color-code-4" class="color-code">#AAD1B6</div>
+                <div id="color-code-5" class="color-code">#A626D3</div>
+            </div>
         </div>
-        <div id="color-display"></div>
-        <div id="color-names"></div>
+
         <script src="index.js"></script>
     </body>
 </html>
