@@ -3,7 +3,7 @@ const dropdownContent = document.getElementById('dropdown-content')
 const colorPicker = document.getElementById('eye-dropper-picker')
 const callApiBtn = document.getElementById('get-scheme-btn')
 const colorBars = document.getElementById('color-bars')
-const colorCodes = document.getElementById('color-code-section')
+
 let currentScheme = 'monochrome'
 let dropdownOpen = false
 let selectedColor = 'F55A5A'
@@ -35,6 +35,10 @@ document.addEventListener('click', (e) => {
         document.getElementById('current-scheme-text').textContent =
             currentScheme[0].toUpperCase() + currentScheme.substring(1)
         closeDropDown()
+    } else if (e.target.dataset.colorBar) {
+        copyColorCode(e.target.dataset.colorBar)
+    } else if (e.target.dataset.colorCode) {
+        copyColorCode(e.target.dataset.colorCode)
     }
 })
 
@@ -43,6 +47,12 @@ dropdownEl.addEventListener('click', (e) => {
     e.stopPropagation()
     dropdownOpen === false ? openDropDown() : closeDropDown()
 })
+
+function copyColorCode(arrayLocation) {
+    let colorCode = colorArray[arrayLocation]
+    navigator.clipboard.writeText(colorCode)
+    alert('Copied ' + colorCode)
+}
 
 // Color selector
 function updateSelectedColor(event) {
