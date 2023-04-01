@@ -112,7 +112,7 @@ function closeDropDown() {
 }
 
 function openDropDown() {
-    dropdownContent.style.display = 'grid'
+    dropdownContent.style.display = 'flex'
     dropdownOpen = true
 }
 
@@ -132,12 +132,26 @@ function callApi() {
 }
 
 // Update color bars and codes
-function updateColors() {
-    for (let i = 1; i < 6; i++) {
-        document.getElementById('color-' + i.toString()).style.background =
-            colorArray[i - 1]
+// function updateColors() {
+//     for (let i = 1; i < 6; i++) {
+//         document.getElementById('color-' + i.toString()).style.background =
+//             colorArray[i - 1]
 
-        document.getElementById('color-code-' + i.toString()).textContent =
-            colorArray[i - 1]
+//         document.getElementById('color-code-' + i.toString()).textContent =
+//             colorArray[i - 1]
+//     }
+// }
+
+const displayArray = document.querySelectorAll('.color-bar')
+const colorCodesArray = document.querySelectorAll('.color-code')
+
+function updateColors() {
+    console.log(displayArray)
+    console.log(colorCodesArray)
+    for (let i = 0; i < displayArray.length; i++) {
+        displayArray[i].style.background = colorArray[i]
+        colorCodesArray[i].textContent = colorArray[i]
     }
 }
+
+callApi()

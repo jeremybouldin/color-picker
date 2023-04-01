@@ -25,124 +25,149 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div id="container">
-            <div id="header">
-                <input type="color" id="eye-dropper-picker" value="#F55A5A" />
-                <div id="dropdown-section">
-                    <div id="current-scheme-text">Monochrome</div>
-                    <i
-                        class="fa-solid fa-angle-down"
-                        style="color: #dbdde1"
-                    ></i>
+        <div id="container" class="container">
+            <div id="header" class="header">
+                <input
+                    type="color"
+                    id="eye-dropper-picker"
+                    class="eye-dropper-picker"
+                    value="#F55A5A"
+                />
+                <div id="dropdown-container" class="dropdown-container">
+                    <div id="dropdown-section" class="dropdown-section">
+                        <div
+                            id="current-scheme-text"
+                            class="current-scheme-text"
+                        >
+                            Monochrome
+                        </div>
+                        <i
+                            class="fa-solid fa-angle-down"
+                            style="color: #dbdde1"
+                        ></i>
+                    </div>
+                    <div
+                        id="dropdown-content"
+                        class="dropdown-content-container"
+                    >
+                        <div id="monochrome" class="dropdown-item">
+                            <h2
+                                id="monochrome-text"
+                                data-scheme="monochrome"
+                                class="dropdown-name bold"
+                                href="#"
+                            >
+                                Monochrome
+                            </h2>
+                            <i
+                                id="monochrome-check"
+                                class="fa-solid fa-check"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+
+                        <div id="monochrome-dark" class="dropdown-item">
+                            <h2
+                                id="monochrome-dark-text"
+                                data-scheme="monochrome-dark"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Monochrome-dark
+                            </h2>
+                            <i
+                                id="monochrome-dark-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                        <div id="monochrome-light" class="dropdown-item">
+                            <h2
+                                id="monochrome-light-text"
+                                data-scheme="monochrome-light"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Monochrome-light
+                            </h2>
+                            <i
+                                id="monochrome-light-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                        <div id="analogic" class="dropdown-item">
+                            <h2
+                                id="analogic-text"
+                                data-scheme="analogic"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Analogic
+                            </h2>
+                            <i
+                                id="analogic-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                        <div id="complement" class="dropdown-item">
+                            <h2
+                                id="complement-text"
+                                data-scheme="complement"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Complement
+                            </h2>
+                            <i
+                                id="complement-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                        <div id="analogic-complement" class="dropdown-item">
+                            <h2
+                                id="analogic-complement-text"
+                                data-scheme="analogic-complement"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Analogic-complement
+                            </h2>
+                            <i
+                                id="analogic-complement-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                        <div id="triad" class="dropdown-item">
+                            <h2
+                                id="triad-text"
+                                data-scheme="triad"
+                                class="dropdown-name"
+                                href="#"
+                            >
+                                Triad
+                            </h2>
+                            <i
+                                id="triad-check"
+                                class="fa-solid fa-check hidden"
+                                style="color: #4f46e5"
+                            ></i>
+                        </div>
+                    </div>
                 </div>
-                <div id="dropdown-content">
-                    <div id="monochrome" class="dropdown-item">
-                        <a
-                            id="monochrome-text"
-                            data-scheme="monochrome"
-                            class="dropdown-name bold"
-                            href="#"
-                            >Monochrome</a
-                        >
-                        <i
-                            id="monochrome-check"
-                            class="fa-solid fa-check"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="monochrome-dark" class="dropdown-item">
-                        <a
-                            id="monochrome-dark-text"
-                            data-scheme="monochrome-dark"
-                            class="dropdown-name"
-                            href="#"
-                            >Monochrome-dark</a
-                        >
-                        <i
-                            id="monochrome-dark-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="monochrome-light" class="dropdown-item">
-                        <a
-                            id="monochrome-light-text"
-                            data-scheme="monochrome-light"
-                            class="dropdown-name"
-                            href="#"
-                            >Monochrome-light</a
-                        >
-                        <i
-                            id="monochrome-light-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="analogic" class="dropdown-item">
-                        <a
-                            id="analogic-text"
-                            data-scheme="analogic"
-                            class="dropdown-name"
-                            href="#"
-                            >Analogic</a
-                        >
-                        <i
-                            id="analogic-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="complement" class="dropdown-item">
-                        <a
-                            id="complement-text"
-                            data-scheme="complement"
-                            class="dropdown-name"
-                            href="#"
-                            >Complement</a
-                        >
-                        <i
-                            id="complement-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="analogic-complement" class="dropdown-item">
-                        <a
-                            id="analogic-complement-text"
-                            data-scheme="analogic-complement"
-                            class="dropdown-name"
-                            href="#"
-                            >Analogic-complement</a
-                        >
-                        <i
-                            id="analogic-complement-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
-                    <div id="triad" class="dropdown-item">
-                        <a
-                            id="triad-text"
-                            data-scheme="triad"
-                            class="dropdown-name"
-                            href="#"
-                            >Triad</a
-                        >
-                        <i
-                            id="triad-check"
-                            class="fa-solid fa-check hidden"
-                            style="color: #4f46e5"
-                        ></i>
-                    </div>
+                <div id="get-scheme-btn" class="get-scheme-btn">
+                    Get color scheme
                 </div>
-                <div id="get-scheme-btn">Get color scheme</div>
             </div>
-            <div id="color-bars">
-                <div id="color-1" data-color-bar="0"></div>
-                <div id="color-2" data-color-bar="1"></div>
-                <div id="color-3" data-color-bar="2"></div>
-                <div id="color-4" data-color-bar="3"></div>
-                <div id="color-5" data-color-bar="4"></div>
+            <div id="color-bars" class="color-bars separate">
+                <div class="color-bar" id="color-1" data-color-bar="0"></div>
+                <div class="color-bar" id="color-2" data-color-bar="1"></div>
+                <div class="color-bar" id="color-3" data-color-bar="2"></div>
+                <div class="color-bar" id="color-4" data-color-bar="3"></div>
+                <div class="color-bar" id="color-5" data-color-bar="4"></div>
             </div>
             <div id="color-code-section">
                 <div id="color-code-1" data-color-code="0" class="color-code">
